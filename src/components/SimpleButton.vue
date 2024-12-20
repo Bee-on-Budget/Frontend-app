@@ -6,15 +6,13 @@
 
 
 
-<script>
-export default {
+<script setup>
 
-}
 </script>
 
 
 
-<style>
+<style scoped>
 #simple-button {
     background-color: var(--dark-color);
     color: var(--light-color);

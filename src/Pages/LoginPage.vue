@@ -22,32 +22,24 @@
 
 
 
-<script>
-import InputField from '@/components/InputField.vue';
-import SimpleButton from '@/components/SimpleButton.vue';
-import HSeperator from '@/components/HSeperator.vue';
+<script setup>
+import InputField from '@/Components/InputField.vue';
+import SimpleButton from '@/Components/SimpleButton.vue';
+import HSeperator from '@/Components/HSeperator.vue';
 
-export default {
-    components: {
-        InputField,
-        SimpleButton,
-        HSeperator
-    },
-    methods: {
-        async handleGoogleLoginInSuccess(response) {
-            const { credential } = response; 
-            console.log(credential)
-        },
-        handleGoogleLoginInFail() {
-            console.log('fail');
-        }
-    }
-}
+async function handleGoogleLoginInSuccess(response) {
+    const { credential } = response; 
+    console.log(credential)
+} 
+
+async function handleGoogleLoginInFail() {
+    console.log('fail');
+} 
 </script>
 
 
 
-<style>
+<style scoped>
 #page-container {
     display: flex;
     align-items: center;

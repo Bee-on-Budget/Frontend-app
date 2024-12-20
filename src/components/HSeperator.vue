@@ -10,15 +10,13 @@
 
 
 
-<script>
-export default {
+<script setup>
 
-}
 </script>
 
 
 
-<style>
+<style scoped>
 .HSeperatorContainer {
     display: grid;
     grid-template-columns: repeat(3, auto);

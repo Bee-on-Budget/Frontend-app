@@ -1,33 +1,34 @@
 <template>
-    <div class="input-container" :style="{ width: inputWidth }">
+    <div class="input-container" :style="{ width: props.inputWidth }">
         <label class="input-label" 
             v-if="$slots.default">
             <slot></slot>
         </label>
-        <input class="input-field" :type="inputType"/>
+        <input class="input-field" :type="props.inputType"/>
     </div>
 </template>
 
 
-<script>
-export default {
-    props: {
-        inputType: {
-            type: String,
-            Required: false,
-            default: "text"
-        },
-        inputWidth: {
-            type: String,
-            Required: false,
-            default: "20%"
-        }
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    inputType: {
+        type: String,
+        required: false,
+        default: "text"
     },
-}
+    inputWidth: {
+        type: String,
+        required: false,
+        default: "20%"
+    }
+});
+
 </script>
 
 
-<style>
+<style scoped>
 .input-container {  
     width: 40%;
     padding-top: 10px;
