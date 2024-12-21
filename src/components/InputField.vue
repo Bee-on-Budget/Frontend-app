@@ -4,7 +4,11 @@
             v-if="$slots.default">
             <slot></slot>
         </label>
-        <input class="input-field" :type="props.inputType"/>
+        <input 
+            class="input-field" 
+            :type="props.inputType" 
+            :value="inputText"
+            @input="$emit('update:inputText', $event.target.value)"/>
     </div>
 </template>
 
@@ -15,14 +19,14 @@ import { defineProps } from 'vue';
 const props = defineProps({
     inputType: {
         type: String,
-        required: false,
-        default: "text"
+        required: false
     },
     inputWidth: {
         type: String,
         required: false,
-        default: "20%"
-    }
+        default: '20%'
+    },
+    inputText: String
 });
 
 </script>
