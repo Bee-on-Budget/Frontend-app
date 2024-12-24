@@ -66,4 +66,5 @@ const props = defineProps({
     border-bottom: solid var(--primary-color);
 
 }
+
 </style>
