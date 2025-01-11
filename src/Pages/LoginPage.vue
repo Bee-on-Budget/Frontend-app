@@ -30,9 +30,9 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { jwtDecode } from 'jwt-decode';
-import InputField from '@/Components/InputField.vue';
-import SimpleButton from '@/Components/SimpleButton.vue';
-import HSeperator from '@/Components/HSeperator.vue';
+import InputField from '@/components/InputField.vue';
+import SimpleButton from '@/components/SimpleButton.vue';
+import HSeperator from '@/components/HSeperator.vue';
 import { useRouter } from 'vue-router';
 
 

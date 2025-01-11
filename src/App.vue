@@ -33,7 +33,7 @@
 
 <script setup>
 import { useRoute, useRouter } from 'vue-router';
-import NavBar from '@/Components/NavBar.vue';
+import NavBar from '@/components/NavBar.vue';
 import { onMounted, ref, watch } from 'vue';
 
 const HOME_PAGE = '/'
