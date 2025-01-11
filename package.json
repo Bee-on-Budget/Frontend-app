@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^1.7.9",
+    "@healerlab/vue3-facebook-login": "^0.1.7",
     "core-js": "^3.8.3",
     "cors": "^2.8.5",
     "jwt-decode": "^4.0.0",

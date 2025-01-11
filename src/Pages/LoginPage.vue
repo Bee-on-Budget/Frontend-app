@@ -21,7 +21,23 @@
             @success="handleGoogleLoginInSuccess"
             @error="handleGoogleLoginInFail"
         ></GoogleSignInButton>
-
+        <HFaceBookLogin 
+            v-slot="fbLogin" 
+            app-id="391069538168549" 
+            @onSuccess="handleFacebookLoginInSuccess" 
+            @onFailure="handleFacebookLoginInFail"
+            scope="email,public_profile"
+            fields="id,name,email,first_name,last_name,birthday"
+        >
+            
+            <div @click="fbLogin.initFBLogin" class="fb-button">
+                <img 
+                    src="@/assets/Facebook_icon.svg" 
+                    alt="FacebookLogo" 
+                    style="margin-left: -10px; width: 20px;">
+                <span>Sign in with facebook</span>
+            </div>
+        </HFaceBookLogin>
     </div>
 </template>
 
@@ -34,7 +50,7 @@ import InputField from '@/components/InputField.vue';
 import SimpleButton from '@/components/SimpleButton.vue';
 import HSeperator from '@/components/HSeperator.vue';
 import { useRouter } from 'vue-router';
-
+import { HFaceBookLogin } from '@healerlab/vue3-facebook-login';
 
 const TOKEN_DURATION = 24 // hours
 const GOOGLE_LOGIN_API_URL = 'http://localhost:8080/api/auth/google'
@@ -139,6 +155,30 @@ const handleGoogleLoginInFail = () => {
     console.log('Login Fail!');
 }
 
+const handleFacebookLoginInSuccess = async (response) => {
+    try {
+        if (response && response.authResponse) {
+            const { authResponse } = response;
+            console.log("Facebook login successful:", authResponse);
+            
+        } else {
+            console.error("Facebook login failed. No auth response received.");
+        }
+    } catch (error) {
+        console.error("Error during Facebook login:", error);
+    }
+}
+
+const handleFacebookLoginInFail = (error) => {
+    try{
+        console.log("Facebook login failed:", error);
+    }
+    catch{
+        console.log("Facebook login failed:", error);
+    }
+    
+};
+
 
 onMounted(() => {
     if (document.cookie.includes("token=")) {
@@ -146,8 +186,6 @@ onMounted(() => {
     }
 });
 </script>
-
-
 
 <style scoped>
 #page-container {
@@ -162,5 +200,20 @@ onMounted(() => {
 
 .navbar {
     list-style-type: none;
+}
+
+.fb-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #1967d2;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 44px;
+  width: 182px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 200;
 }
 </style>
