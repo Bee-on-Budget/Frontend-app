@@ -16,6 +16,11 @@
             style="margin-top: 20px;"
             @click="handleLoginAttempt"    
         >Sign In</SimpleButton>
+
+        <p class="createAcc"> Create an account
+            <a href="/register">Here</a>
+        </p>
+
         <HSeperator>OR</HSeperator>
         <GoogleSignInButton 
             @success="handleGoogleLoginInSuccess"
@@ -27,9 +32,7 @@
             @onSuccess="handleFacebookLoginInSuccess" 
             @onFailure="handleFacebookLoginInFail"
             scope="email,public_profile"
-            fields="id,name,email,first_name,last_name,birthday"
-        >
-            
+            fields="id,name,email,first_name,last_name,birthday">
             <div @click="fbLogin.initFBLogin" class="fb-button">
                 <img 
                     src="@/assets/Facebook_icon.svg" 
@@ -200,6 +203,15 @@ onMounted(() => {
 
 .navbar {
     list-style-type: none;
+}
+
+.createAcc{
+    color: var(--light-color); 
+    margin-bottom: 0px;
+
+    a{
+        color: var(--primary-color);
+    }
 }
 
 .fb-button {
